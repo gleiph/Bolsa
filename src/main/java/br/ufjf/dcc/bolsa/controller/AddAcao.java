@@ -8,8 +8,6 @@ package br.ufjf.dcc.bolsa.controller;
 import br.ufjf.dcc.bolsa.view.JanelaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
