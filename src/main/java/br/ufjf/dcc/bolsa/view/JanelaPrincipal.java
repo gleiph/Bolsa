@@ -60,7 +60,7 @@ public class JanelaPrincipal extends JFrame {
         janelaPrincipal.setVisible(true);
     }
 
-    public void addAcao(String tag){
+    public void addAcao(String tag) throws Exception{
         this.painelCarteira.addAcao(tag);
         this.repaint();
     } 

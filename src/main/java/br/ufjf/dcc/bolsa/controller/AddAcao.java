@@ -8,22 +8,34 @@ package br.ufjf.dcc.bolsa.controller;
 import br.ufjf.dcc.bolsa.view.JanelaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author gleip
+ * @author gleiph
  */
-public class AddAcao implements ActionListener{
+public class AddAcao implements ActionListener {
 
-    private JanelaPrincipal janelaPrincipal;
+    private final JanelaPrincipal janelaPrincipal;
 
     public AddAcao(JanelaPrincipal janelaPrincipal) {
         this.janelaPrincipal = janelaPrincipal;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
-        janelaPrincipal.addAcao("PETR4");
+        String tag = JOptionPane.showInputDialog("Digite a tag da ação que deseja adicionar:");
+        if (tag != null) {
+            try {
+                janelaPrincipal.addAcao(tag);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Ação já existe em carteira!");
+            }
+
+        }
+
     }
-    
+
 }

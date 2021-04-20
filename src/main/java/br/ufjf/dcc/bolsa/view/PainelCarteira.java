@@ -42,10 +42,17 @@ public class PainelCarteira extends JPanel {
         this.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
     }
 
-    public void addAcao(String tag) {
+    public void addAcao(String tag) throws Exception {
 
         DefaultTableModel model = (DefaultTableModel) this.jtAtivo.getModel();
         String[] linha = {tag, "0", "0"};
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String nome = (String) model.getValueAt(i, 0);
+            if(nome.equals(tag))
+                throw new Exception("Ação já existe!");
+        }
+
         model.addRow(linha);
         this.jtAtivo.setModel(model);
 
