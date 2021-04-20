@@ -14,9 +14,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PainelNegociacoes extends JPanel {
 
-    public static JPanel desenha(JFrame frame) {
+    public static PainelNegociacoes desenha(JFrame frame) {
 
-        JPanel jp = new JPanel();
+        PainelNegociacoes jp = new PainelNegociacoes();
         jp.setLayout(new BorderLayout());
 
         Dimension d = new Dimension((int)(frame.getWidth()*0.3d), frame.getHeight());

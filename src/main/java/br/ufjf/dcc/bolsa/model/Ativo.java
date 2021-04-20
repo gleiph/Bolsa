@@ -7,6 +7,8 @@ package br.ufjf.dcc.bolsa.model;
 public class Ativo {
     
     private String tag;
+    private int quantidade;
+    private double precoMedio;
 
     public String getTag() {
         return tag;
@@ -14,6 +16,22 @@ public class Ativo {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getPrecoMedio() {
+        return precoMedio;
+    }
+
+    public void setPrecoMedio(double precoMedio) {
+        this.precoMedio = precoMedio;
     }
     
 }

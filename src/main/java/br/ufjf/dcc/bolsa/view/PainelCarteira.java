@@ -6,6 +6,7 @@
 package br.ufjf.dcc.bolsa.view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,26 +18,37 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author gleip
  */
-public class PainelCarteira extends JPanel{
-    
-    public static JPanel desenha(JFrame frame) {
+public class PainelCarteira extends JPanel {
 
-        JPanel jp = new JPanel();
-        jp.setLayout(new BorderLayout());
-        
-        
-        Dimension d = new Dimension((int)(frame.getWidth()*0.3d), frame.getHeight());
-        jp.setPreferredSize(d);
-        
-        JTable jtAtivo = new JTable();
-        
+    private JTable jtAtivo;
+    private final JFrame frame;
+
+    public PainelCarteira(JFrame jf) {
+        super();
+        this.frame = jf;
+
+        this.setLayout(new BorderLayout());
+
+        Dimension d = new Dimension((int) (frame.getWidth() * 0.3d), frame.getHeight());
+        this.setPreferredSize(d);
+
+        jtAtivo = new JTable();
+
         String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
         jtAtivo.setModel(model);
-        
-        jp.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
-        
-        return jp;
+
+        this.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
+    }
+
+    public void addAcao(String tag) {
+
+        DefaultTableModel model = (DefaultTableModel) this.jtAtivo.getModel();
+        String[] linha = {tag, "0", "0"};
+        model.addRow(linha);
+        this.jtAtivo.setModel(model);
+
+        this.repaint();
     }
 }
