@@ -45,5 +45,4 @@ public class Ativo {
         return tag;
     }
  
-    
 }

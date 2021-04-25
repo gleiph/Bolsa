@@ -5,6 +5,8 @@
  */
 package br.ufjf.dcc.bolsa.controller;
 
+import br.ufjf.dcc.bolsa.model.Ativo;
+import br.ufjf.dcc.bolsa.model.Compra;
 import br.ufjf.dcc.bolsa.model.Negociacao;
 import br.ufjf.dcc.bolsa.model.Venda;
 import br.ufjf.dcc.bolsa.view.JanelaAddNegociacao;
@@ -40,11 +42,12 @@ public class RealizarNegociacao implements ActionListener {
         
         if (tipo.equals("Compra")) {
         
-            negociacao = new Venda();
+            negociacao = new Compra();
             negociacao.setData(LocalDate.now());
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
             negociacao.setAtivo(janelaPrincipal.getAtivo(tag));
+            negociacao.atualiza(quantidade, precoUnitario);
             
             janelaPrincipal.getNegociacoes().add(negociacao);
         
@@ -54,12 +57,16 @@ public class RealizarNegociacao implements ActionListener {
             negociacao.setData(LocalDate.now());
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
-            negociacao.setAtivo(janelaPrincipal.getAtivo(tag));
+            
+            Ativo ativo = janelaPrincipal.getAtivo(tag);
+            
+            negociacao.setAtivo(ativo);
+            negociacao.atualiza(quantidade, precoUnitario);
 
             janelaPrincipal.getNegociacoes().add(negociacao);
             
         }else{
-            System.out.println("Negiciação não suportada...");
+            System.out.println("Negociação não suportada...");
         }
             
         

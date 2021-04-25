@@ -50,4 +50,7 @@ public abstract class Negociacao {
     }
     
     public abstract double getTotal();
+    
+    public abstract void atualiza(int quantidade, double precoUnitario);
+    
 }

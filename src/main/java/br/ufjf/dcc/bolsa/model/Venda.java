@@ -10,5 +10,18 @@ public class Venda extends Negociacao{
     public double getTotal() {
         return this.getQuantidade() * this.getValorUnitario() - this.getTaxas();
     }
+
+    @Override
+    public void atualiza(int quantidade, double precoUnitario) {
+
+        int quantidadeAtualizada = this.getAtivo().getQuantidade() - quantidade;
+        this.getAtivo().setQuantidade(quantidadeAtualizada);
+        
+        if(quantidadeAtualizada == 0){
+            this.getAtivo().setPrecoMedio(0);
+        }
+        
+    }
+    
     
 }
