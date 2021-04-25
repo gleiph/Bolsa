@@ -6,7 +6,7 @@
 package br.ufjf.dcc.bolsa.controller;
 
 import br.ufjf.dcc.bolsa.view.JanelaPrincipal;
-import br.ufjf.dcc.bolsa.view.OperacaoView;
+import br.ufjf.dcc.bolsa.view.JanelaAddNegociacao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +24,7 @@ public class AddNegociacao implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        OperacaoView operacaoView = new OperacaoView();
+        JanelaAddNegociacao operacaoView = new JanelaAddNegociacao();
         operacaoView.desenha(janelaPrincipal);
         operacaoView.setVisible(true);
         

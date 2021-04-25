@@ -10,6 +10,12 @@ public class Ativo {
     private int quantidade;
     private double precoMedio;
 
+    public Ativo(String tag, int quantidade, double precoMedio) {
+        this.tag = tag;
+        this.quantidade = quantidade;
+        this.precoMedio = precoMedio;
+    }
+
     public String getTag() {
         return tag;
     }

@@ -9,61 +9,60 @@ import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import javax.swing.DefaultListModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 
 /**
  *
  * @author gleiph
  */
-public class OperacaoView extends JFrame {
+public class JanelaAddNegociacao extends JFrame {
 
-    private JList jliTag;
+    private JComboBox cbTag;
     private JTextField tfQuantidade;
     private JTextField tfPreco;
-    private JTextField tfTipo;
+    private JComboBox cbTipo;
 
-    public OperacaoView() {
+    public JanelaAddNegociacao() {
         super();
         int tamanhoTF = 15;
-        this.jliTag = new JList();
+        this.cbTag = new JComboBox();
         this.tfQuantidade = new JTextField(tamanhoTF);
         this.tfPreco = new JTextField(tamanhoTF);
-        this.tfTipo = new JTextField(tamanhoTF);
+        this.cbTipo = new JComboBox();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     public void desenha(JanelaPrincipal jp) {
         this.setSize(new Dimension(400, 300));
         this.setLayout(new BorderLayout(20, 20));
-        
+
         JPanel jPanel = new JPanel();
         jPanel.setLayout(new GridLayout(5, 2, 10, 10));
 
         jPanel.add(new JLabel());
         jPanel.add(new JLabel());
-        
+
         JLabel jlNome = new JLabel("Nome:");
         JLabel jlQuantidade = new JLabel("Quantidade:");
         JLabel jlPreco = new JLabel("Preço:");
         JLabel jlTipo = new JLabel("Tipo:");
 
-        DefaultListModel model = new DefaultListModel();
-        
+        DefaultComboBoxModel ativoModel = new DefaultComboBoxModel();
+
         for (Ativo ativo : jp.getAtivos()) {
-            model.addElement(ativo);
+            ativoModel.addElement(ativo);
         }
-        
-        this.jliTag.setModel(model);
-        
+
+        this.cbTag.setModel(ativoModel);
+
         jPanel.add(jlNome);
-        jPanel.add(jliTag);
+        jPanel.add(cbTag);
 
         jPanel.add(jlQuantidade);
         jPanel.add(tfQuantidade);
@@ -71,24 +70,29 @@ public class OperacaoView extends JFrame {
         jPanel.add(jlPreco);
         jPanel.add(tfPreco);
 
+        DefaultComboBoxModel tipoModel = new DefaultComboBoxModel();
+        tipoModel.addElement("Compra");
+        tipoModel.addElement("Venda");
+        cbTipo.setModel(tipoModel);
+        
+        
         jPanel.add(jlTipo);
-        jPanel.add(tfTipo);
-        
+        jPanel.add(cbTipo);
+
         this.add(jPanel, BorderLayout.NORTH);
-        
+
         JButton btnSalvar = new JButton("Salvar");
-        
+
         this.add(btnSalvar, BorderLayout.SOUTH);
-        
 
     }
 
-    public JList getJlTag() {
-        return jliTag;
+    public JComboBox getCbTag() {
+        return cbTag;
     }
 
-    public void setJlTag(JList jlTag) {
-        this.jliTag = jlTag;
+    public void setCbTag(JComboBox cbTag) {
+        this.cbTag = cbTag;
     }
 
     public JTextField getTfQuantidade() {
@@ -107,14 +111,12 @@ public class OperacaoView extends JFrame {
         this.tfPreco = tfPreco;
     }
 
-    public JTextField getTfTipo() {
-        return tfTipo;
+    public JComboBox getCbTipo() {
+        return cbTipo;
     }
 
-    public void setTfTipo(JTextField tfTipo) {
-        this.tfTipo = tfTipo;
+    public void setCbTipo(JComboBox cbTipo) {
+        this.cbTipo = cbTipo;
     }
-
-    
 
 }

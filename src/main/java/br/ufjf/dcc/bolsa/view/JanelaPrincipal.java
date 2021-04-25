@@ -73,6 +73,7 @@ public class JanelaPrincipal extends JFrame {
 
     public void addAcao(String nome) throws Exception{
         this.painelCarteira.addAcao(nome);
+        this.ativos.add(new Ativo(nome, 0,0));
         this.repaint();
     } 
     
