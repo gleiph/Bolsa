@@ -80,5 +80,13 @@ public class JanelaPrincipal extends JFrame {
         
         this.repaint();
     }
+
+    public List<Ativo> getAtivos() {
+        return ativos;
+    }
+
+    public void setAtivos(List<Ativo> ativos) {
+        this.ativos = ativos;
+    }
     
 }

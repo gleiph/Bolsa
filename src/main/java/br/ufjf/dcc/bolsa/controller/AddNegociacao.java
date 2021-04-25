@@ -25,7 +25,7 @@ public class AddNegociacao implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         OperacaoView operacaoView = new OperacaoView();
-        operacaoView.desenha();
+        operacaoView.desenha(janelaPrincipal);
         operacaoView.setVisible(true);
         
         

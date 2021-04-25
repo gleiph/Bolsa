@@ -33,5 +33,11 @@ public class Ativo {
     public void setPrecoMedio(double precoMedio) {
         this.precoMedio = precoMedio;
     }
+
+    @Override
+    public String toString() {
+        return tag;
+    }
+ 
     
 }
