@@ -6,10 +6,12 @@ import java.time.LocalDate;
  *
  * @author gleip
  */
-public class Negociacao {
+public abstract class Negociacao {
     
     private LocalDate data;
-    private double valor;
+    private int quantidade;
+    private double valorUnitario;
+    private Ativo ativo;
 
     public LocalDate getData() {
         return data;
@@ -19,12 +21,33 @@ public class Negociacao {
         this.data = data;
     }
 
-    public double getValor() {
-        return valor;
+    public double getValorUnitario() {
+        return valorUnitario;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValorUnitario(double valorUnitario) {
+        this.valorUnitario = valorUnitario;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Ativo getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Ativo ativo) {
+        this.ativo = ativo;
     }
     
+    public double getTaxas(){
+        return 0;
+    }
+    
+    public abstract double getTotal();
 }

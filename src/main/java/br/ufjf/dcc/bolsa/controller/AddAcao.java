@@ -27,7 +27,7 @@ public class AddAcao implements ActionListener {
         String tag = JOptionPane.showInputDialog("Digite a tag da ação que deseja adicionar:");
         if (tag != null) {
             try {
-                janelaPrincipal.addAcao(tag);
+                janelaPrincipal.addAtivo(tag);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Ação já existe em carteira!");
             }

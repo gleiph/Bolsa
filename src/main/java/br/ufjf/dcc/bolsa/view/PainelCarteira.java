@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.bolsa.view;
 
+import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -20,39 +21,35 @@ import javax.swing.table.DefaultTableModel;
 public class PainelCarteira extends JPanel {
 
     private JTable jtAtivo;
-    private final JFrame frame;
+    private final JanelaPrincipal janelaPrincipal;
 
-    public PainelCarteira(JFrame jf) {
+    public PainelCarteira(JanelaPrincipal janelaPrincipal) {
         super();
-        this.frame = jf;
+        
+        this.janelaPrincipal = janelaPrincipal;
 
         this.setLayout(new BorderLayout());
 
-        Dimension d = new Dimension((int) (frame.getWidth() * 0.3d), frame.getHeight());
+        Dimension d = new Dimension((int) (janelaPrincipal.getWidth() * 0.3d), janelaPrincipal.getHeight());
         this.setPreferredSize(d);
 
         jtAtivo = new JTable();
 
-        String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
-        DefaultTableModel model = new DefaultTableModel(colunas, 0);
-
-        jtAtivo.setModel(model);
 
         this.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
     }
 
-    public void addAcao(String tag) throws Exception {
+    public void atualizar() {
 
-        DefaultTableModel model = (DefaultTableModel) this.jtAtivo.getModel();
-        String[] linha = {tag, "0", "0"};
+        String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
+        DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
-        for (int i = 0; i < model.getRowCount(); i++) {
-            String nome = (String) model.getValueAt(i, 0);
-            if(nome.equals(tag))
-                throw new Exception("Ação já existe!");
+        for (Ativo ativo : janelaPrincipal.getAtivos()) {
+            Object[] linha = {ativo.getTag(), ativo.getQuantidade(), ativo.getPrecoMedio()};
+            model.addRow(linha);
+
         }
 
-        model.addRow(linha);
         this.jtAtivo.setModel(model);
 
         this.repaint();

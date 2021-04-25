@@ -6,4 +6,8 @@ package br.ufjf.dcc.bolsa.model;
  */
 public class Compra extends Negociacao{
     
+    @Override
+    public double getTotal(){
+        return this.getQuantidade() * this.getValorUnitario() + this.getTaxas();
+    }
 }
