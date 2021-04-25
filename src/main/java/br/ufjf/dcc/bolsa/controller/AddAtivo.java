@@ -14,11 +14,11 @@ import javax.swing.JOptionPane;
  *
  * @author gleiph
  */
-public class AddAcao implements ActionListener {
+public class AddAtivo implements ActionListener {
 
     private final JanelaPrincipal janelaPrincipal;
 
-    public AddAcao(JanelaPrincipal janelaPrincipal) {
+    public AddAtivo(JanelaPrincipal janelaPrincipal) {
         this.janelaPrincipal = janelaPrincipal;
     }
 

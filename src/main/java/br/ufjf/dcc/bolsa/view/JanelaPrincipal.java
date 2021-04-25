@@ -1,6 +1,6 @@
 package br.ufjf.dcc.bolsa.view;
 
-import br.ufjf.dcc.bolsa.controller.AddAcao;
+import br.ufjf.dcc.bolsa.controller.AddAtivo;
 import br.ufjf.dcc.bolsa.controller.AddNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import br.ufjf.dcc.bolsa.model.Negociacao;
@@ -48,7 +48,7 @@ public class JanelaPrincipal extends JFrame {
         JMenu subMenu = new JMenu("Adicionar");
 
         JMenuItem addAcao = new JMenuItem("Ação");
-        addAcao.addActionListener(new AddAcao(janelaPrincipal));
+        addAcao.addActionListener(new AddAtivo(janelaPrincipal));
         subMenu.add(addAcao);
 
         JMenuItem addNegociacao = new JMenuItem("Negociação");
