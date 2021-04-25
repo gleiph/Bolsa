@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.bolsa.view;
 
+import br.ufjf.dcc.bolsa.controller.RealizarNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -82,6 +83,7 @@ public class JanelaAddNegociacao extends JFrame {
         this.add(jPanel, BorderLayout.NORTH);
 
         JButton btnSalvar = new JButton("Salvar");
+        btnSalvar.addActionListener(new RealizarNegociacao(this, jp));
 
         this.add(btnSalvar, BorderLayout.SOUTH);
 

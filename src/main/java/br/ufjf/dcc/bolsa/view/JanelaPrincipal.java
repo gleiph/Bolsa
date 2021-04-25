@@ -3,6 +3,7 @@ package br.ufjf.dcc.bolsa.view;
 import br.ufjf.dcc.bolsa.controller.AddAcao;
 import br.ufjf.dcc.bolsa.controller.AddNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
+import br.ufjf.dcc.bolsa.model.Negociacao;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,14 +75,14 @@ public class JanelaPrincipal extends JFrame {
     public void addAcao(String nome) throws Exception{
         this.painelCarteira.addAcao(nome);
         this.ativos.add(new Ativo(nome, 0,0));
-        this.repaint();
+        this.repintar();
     } 
     
-    public void addNegociacao(String nome, int quantidade, double preco, double taxas, String tipo) throws Exception{
-        
-        this.repaint();
+    public void addNegociacao(String nome, int quantidade, double precoUnitario, double taxas, double total, String tipo){
+        this.painelNegociacoes.addNegociacao(nome, quantidade, precoUnitario, taxas, total, tipo);
+        this.repintar();
     }
-
+    
     public List<Ativo> getAtivos() {
         return ativos;
     }
