@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.bolsa.view;
 
+import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -44,7 +45,7 @@ public class PainelCarteira extends JPanel {
         String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
-        for (Ativo ativo : janelaPrincipal.getAtivos()) {
+        for (Ativo ativo : Dados.getAtivos()) {
             Object[] linha = {ativo.getTag(), ativo.getQuantidade(), ativo.getPrecoMedio()};
             model.addRow(linha);
 

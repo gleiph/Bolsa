@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.bolsa.view;
 
+import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.controller.RealizarNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
@@ -56,7 +57,7 @@ public class JanelaAddNegociacao extends JFrame {
 
         DefaultComboBoxModel ativoModel = new DefaultComboBoxModel();
 
-        for (Ativo ativo : jp.getAtivos()) {
+        for (Ativo ativo : Dados.getAtivos()) {
             ativoModel.addElement(ativo);
         }
 
