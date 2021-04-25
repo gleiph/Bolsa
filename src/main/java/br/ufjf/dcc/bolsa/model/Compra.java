@@ -2,7 +2,7 @@ package br.ufjf.dcc.bolsa.model;
 
 /**
  *
- * @author gleip
+ * @author gleiph
  */
 public class Compra extends Negociacao{
     

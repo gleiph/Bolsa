@@ -14,13 +14,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PainelNegociacoes extends JPanel {
 
-    public static PainelNegociacoes desenha(JFrame frame) {
+    private final JFrame frame;
 
-        PainelNegociacoes jp = new PainelNegociacoes();
-        jp.setLayout(new BorderLayout());
+    public PainelNegociacoes(JFrame frame) {
+        this.frame = frame;
+    }
+    
+    public void desenha() {
 
-        Dimension d = new Dimension((int)(frame.getWidth()*0.3d), frame.getHeight());
-        jp.setPreferredSize(d);
+        
+        this.setLayout(new BorderLayout());
+
+        Dimension d = new Dimension((int)(this.frame.getWidth()*0.3d), this.frame.getHeight());
+        this.setPreferredSize(d);
         
         JTable jtNegociacoes = new JTable();
 
@@ -29,9 +35,8 @@ public class PainelNegociacoes extends JPanel {
 
         jtNegociacoes.setModel(model);
 
-        jp.add(new JScrollPane(jtNegociacoes), BorderLayout.CENTER);
+        this.add(new JScrollPane(jtNegociacoes), BorderLayout.CENTER);
 
-        return jp;
     }
 
 }

@@ -1,6 +1,7 @@
 package br.ufjf.dcc.bolsa.view;
 
 import br.ufjf.dcc.bolsa.controller.AddAcao;
+import br.ufjf.dcc.bolsa.controller.AddNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -41,9 +42,16 @@ public class JanelaPrincipal extends JFrame {
         
         JMenuBar menu = new JMenuBar();
         JMenu subMenu = new JMenu("Adicionar");
+        
         JMenuItem addAcao = new JMenuItem("Ação");
         addAcao.addActionListener(new AddAcao(janelaPrincipal));
         subMenu.add(addAcao);
+
+        JMenuItem addNegociacao = new JMenuItem("Negociação");
+        addNegociacao.addActionListener(new AddNegociacao(janelaPrincipal));
+        subMenu.add(addNegociacao);
+        
+        
         menu.add(subMenu);
         
         janelaPrincipal.setJMenuBar(menu);
@@ -53,16 +61,24 @@ public class JanelaPrincipal extends JFrame {
         janelaPrincipal.painelCarteira = new PainelCarteira(janelaPrincipal);
         janelaPrincipal.add(janelaPrincipal.painelCarteira, BorderLayout.WEST);
 
-        janelaPrincipal.painelNegociacoes = PainelNegociacoes.desenha(janelaPrincipal);
+        
+        janelaPrincipal.painelNegociacoes = new PainelNegociacoes(janelaPrincipal);
+        janelaPrincipal.painelNegociacoes.desenha();
         janelaPrincipal.add(janelaPrincipal.painelNegociacoes, BorderLayout.CENTER);
 
         janelaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janelaPrincipal.setVisible(true);
+        
     }
 
-    public void addAcao(String tag) throws Exception{
-        this.painelCarteira.addAcao(tag);
+    public void addAcao(String nome) throws Exception{
+        this.painelCarteira.addAcao(nome);
         this.repaint();
     } 
+    
+    public void addNegociacao(String nome, int quantidade, double preco, double taxas, String tipo) throws Exception{
+        
+        this.repaint();
+    }
     
 }
