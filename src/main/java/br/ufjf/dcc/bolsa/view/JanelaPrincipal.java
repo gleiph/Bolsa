@@ -69,8 +69,8 @@ public class JanelaPrincipal extends JFrame {
         this.atualizar();
     }
 
-    public void addNegociacao(String nome, int quantidade, double precoUnitario, double taxas, double total, String tipo) {
-        this.painelNegociacoes.addNegociacao(nome, quantidade, precoUnitario, taxas, total, tipo);
+    public void addNegociacao(String nome, int quantidade, double precoUnitario, double taxaNegociacao, double taxaLiquidacao, double total, String tipo) {
+        this.painelNegociacoes.addNegociacao(nome, quantidade, precoUnitario, taxaNegociacao, taxaLiquidacao, total, tipo);
         this.atualizar();
     }
 

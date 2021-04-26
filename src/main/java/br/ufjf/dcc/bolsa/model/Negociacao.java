@@ -1,5 +1,7 @@
 package br.ufjf.dcc.bolsa.model;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 
 /**
@@ -7,7 +9,7 @@ import java.time.LocalDate;
  * @author gleip
  */
 public abstract class Negociacao {
-    
+
     private LocalDate data;
     private int quantidade;
     private double valorUnitario;
@@ -44,13 +46,17 @@ public abstract class Negociacao {
     public void setAtivo(Ativo ativo) {
         this.ativo = ativo;
     }
-    
-    public double getTaxas(){
-        return 0;
+
+    public double getTaxaLiquidacao() {
+        return this.getQuantidade() * this.getValorUnitario() * 0.0250 / 100;
     }
-    
+
+    public double getTaxaNegociacao() {
+        return this.getQuantidade() * this.getValorUnitario() * 0.0050 / 100;
+    }
+
     public abstract double getTotal();
-    
+
     public abstract void atualiza(int quantidade, double precoUnitario);
-    
+
 }

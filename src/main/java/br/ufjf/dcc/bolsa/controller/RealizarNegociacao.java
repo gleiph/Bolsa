@@ -45,6 +45,7 @@ public class RealizarNegociacao implements ActionListener {
             negociacao.setAtivo(Dados.getAtivo(tag));
             negociacao.atualiza(quantidade, precoUnitario);
             
+            
             Dados.getNegociacoes().add(negociacao);
         
         }else if(tipo.equals("Venda")){
@@ -66,7 +67,8 @@ public class RealizarNegociacao implements ActionListener {
         }
             
         
-        janelaPrincipal.addNegociacao(tag, quantidade, precoUnitario, taxas, quantidade*precoUnitario+taxas, tipo);
+        janelaPrincipal.addNegociacao(negociacao.getAtivo().getTag(), negociacao.getQuantidade(), negociacao.getValorUnitario(), 
+                negociacao.getTaxaNegociacao(),negociacao.getTaxaLiquidacao(), negociacao.getTotal(), tipo);
         
         
         

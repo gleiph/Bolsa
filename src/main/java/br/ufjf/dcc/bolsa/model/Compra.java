@@ -8,7 +8,7 @@ public class Compra extends Negociacao{
     
     @Override
     public double getTotal(){
-        return this.getQuantidade() * this.getValorUnitario() + this.getTaxas();
+        return this.getQuantidade() * this.getValorUnitario() + (this.getTaxaNegociacao() + this.getTaxaLiquidacao());
     }
     
     @Override

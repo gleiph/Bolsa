@@ -30,7 +30,7 @@ public class PainelNegociacoes extends JPanel {
         Dimension d = new Dimension((int)(this.frame.getWidth()*0.3d), this.frame.getHeight());
         this.setPreferredSize(d);
 
-        String[] colunas = {"Nome", "Quantidade", "Preço Unitário", "Taxas", "Total", "Tipo"};
+        String[] colunas = {"Nome", "Quantidade", "Preço Unitário", "Taxa de Negociação", "Taxa de Liquidação", "Total", "Tipo"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
         jtNegociacoes.setModel(model);
@@ -39,9 +39,9 @@ public class PainelNegociacoes extends JPanel {
 
     }
 
-    void addNegociacao(String nome, int quantidade, double precoUnitario, double taxas, double total, String tipo) {
+    void addNegociacao(String nome, int quantidade, double precoUnitario, double taxaNegociacao, double taxaLiquidacao, double total, String tipo) {
         DefaultTableModel model = (DefaultTableModel) this.jtNegociacoes.getModel();
-        Object[] linha = {nome, quantidade, precoUnitario, taxas, total, tipo};
+        Object[] linha = {nome, quantidade, precoUnitario, taxaNegociacao, taxaLiquidacao, total, tipo};
         
         model.addRow(linha);
         jtNegociacoes.setModel(model);
