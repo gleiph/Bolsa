@@ -35,43 +35,40 @@ public class RealizarNegociacao implements ActionListener {
         String tipo = janelaAddNegociacao.getCbTipo().getSelectedItem().toString();
         double taxas = 0;//TODO
         Negociacao negociacao = null;
-        
+
         if (tipo.equals("Compra")) {
-        
+
             negociacao = new Compra();
             negociacao.setData(LocalDate.now());
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
             negociacao.setAtivo(Dados.getAtivo(tag));
             negociacao.atualiza(quantidade, precoUnitario);
-            
-            
+
             Dados.getNegociacoes().add(negociacao);
-        
-        }else if(tipo.equals("Venda")){
-        
+
+        } else if (tipo.equals("Venda")) {
+
             negociacao = new Venda();
             negociacao.setData(LocalDate.now());
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
-            
+
             Ativo ativo = Dados.getAtivo(tag);
-            
+
             negociacao.setAtivo(ativo);
             negociacao.atualiza(quantidade, precoUnitario);
 
             Dados.getNegociacoes().add(negociacao);
-            
-        }else{
+
+        } else {
             System.out.println("Negociação não suportada...");
         }
-            
-        
-        janelaPrincipal.addNegociacao(negociacao.getAtivo().getTag(), negociacao.getQuantidade(), negociacao.getValorUnitario(), 
-                negociacao.getTaxaNegociacao(),negociacao.getTaxaLiquidacao(), negociacao.getTotal(), tipo);
-        
-        
-        
+
+        janelaPrincipal.addNegociacao(negociacao.getAtivo().getTag(), negociacao.getQuantidade(), negociacao.getValorUnitario(),
+                negociacao.getTaxaNegociacao(), negociacao.getTaxaLiquidacao(), negociacao.getTotal(), tipo);
+
     }
+
 
 }

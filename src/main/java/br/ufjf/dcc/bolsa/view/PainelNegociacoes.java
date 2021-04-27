@@ -2,6 +2,8 @@ package br.ufjf.dcc.bolsa.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -41,11 +43,20 @@ public class PainelNegociacoes extends JPanel {
 
     void addNegociacao(String nome, int quantidade, double precoUnitario, double taxaNegociacao, double taxaLiquidacao, double total, String tipo) {
         DefaultTableModel model = (DefaultTableModel) this.jtNegociacoes.getModel();
-        Object[] linha = {nome, quantidade, precoUnitario, taxaNegociacao, taxaLiquidacao, total, tipo};
+        Object[] linha = {nome, quantidade, this.formataDouble(precoUnitario), this.formataDouble(taxaNegociacao), 
+            this.formataDouble(taxaLiquidacao), this.formataDouble(total), tipo};
         
         model.addRow(linha);
         jtNegociacoes.setModel(model);
         
     }
 
+    private String formataDouble(double numero){
+        DecimalFormat df = new DecimalFormat("0.00");
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+        dfs.setDecimalSeparator('.');
+        df.setDecimalFormatSymbols(dfs);
+        return df.format(numero);
+    }
+    
 }
