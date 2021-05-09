@@ -1,12 +1,10 @@
 package br.ufjf.dcc.bolsa.model;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 
 /**
  *
- * @author gleip
+ * @author gleiph
  */
 public abstract class Negociacao {
 
@@ -14,6 +12,9 @@ public abstract class Negociacao {
     private int quantidade;
     private double valorUnitario;
     private Ativo ativo;
+
+    public static final String VENDA  = "Venda";
+    public static final String COMPRA  = "Compra";
 
     public LocalDate getData() {
         return data;
@@ -53,6 +54,16 @@ public abstract class Negociacao {
 
     public double getTaxaNegociacao() {
         return this.getQuantidade() * this.getValorUnitario() * 0.0050 / 100;
+    }
+
+    public String getTipo() {
+        if (this instanceof Venda) {
+            return VENDA;
+        } else if (this instanceof Compra) {
+            return COMPRA;
+        } else{
+            throw new RuntimeException("Operação não suportada");
+        }
     }
 
     public abstract double getTotal();

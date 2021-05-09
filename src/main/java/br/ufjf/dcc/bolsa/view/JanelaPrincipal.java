@@ -3,6 +3,7 @@ package br.ufjf.dcc.bolsa.view;
 import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.controller.AddAtivo;
 import br.ufjf.dcc.bolsa.controller.AddNegociacao;
+import br.ufjf.dcc.bolsa.controller.TratarDados;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
@@ -25,8 +26,8 @@ public class JanelaPrincipal extends JFrame {
 
     public void atualizar() {
         
-        painelCarteira.atualizar();
-        painelNegociacoes.repaint();
+        painelCarteira.atualiza();
+        painelNegociacoes.atualiza();
         this.repaint();
     }
 
@@ -34,6 +35,7 @@ public class JanelaPrincipal extends JFrame {
 
         JanelaPrincipal janelaPrincipal = new JanelaPrincipal();
         janelaPrincipal.setSize(1200,600);
+        janelaPrincipal.addWindowListener(new TratarDados(janelaPrincipal));
 
         JMenuBar menu = new JMenuBar();
         JMenu subMenu = new JMenu("Adicionar");
@@ -56,7 +58,7 @@ public class JanelaPrincipal extends JFrame {
         janelaPrincipal.add(janelaPrincipal.painelCarteira, BorderLayout.WEST);
 
         janelaPrincipal.painelNegociacoes = new PainelNegociacoes(janelaPrincipal);
-        janelaPrincipal.painelNegociacoes.desenha();
+        janelaPrincipal.painelNegociacoes.atualiza();
         janelaPrincipal.add(janelaPrincipal.painelNegociacoes, BorderLayout.CENTER);
 
         janelaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

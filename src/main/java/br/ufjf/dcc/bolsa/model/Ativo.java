@@ -10,6 +10,9 @@ public class Ativo {
     private int quantidade;
     private double precoMedio;
 
+    public Ativo() {
+    }
+
     public Ativo(String tag, int quantidade, double precoMedio) {
         this.tag = tag;
         this.quantidade = quantidade;

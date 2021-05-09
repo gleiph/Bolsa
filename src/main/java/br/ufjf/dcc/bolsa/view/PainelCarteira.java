@@ -34,7 +34,7 @@ public class PainelCarteira extends JPanel {
         this.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
     }
 
-    public void atualizar() {
+    public void atualiza() {
 
         String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);

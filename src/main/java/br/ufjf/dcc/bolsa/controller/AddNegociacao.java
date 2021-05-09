@@ -23,8 +23,6 @@ public class AddNegociacao implements ActionListener {
         operacaoView.desenha(janelaPrincipal);
         operacaoView.setVisible(true);
         
-        
-
     }
 
 }

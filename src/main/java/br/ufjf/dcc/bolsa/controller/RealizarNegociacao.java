@@ -36,7 +36,7 @@ public class RealizarNegociacao implements ActionListener {
         double taxas = 0;//TODO
         Negociacao negociacao = null;
 
-        if (tipo.equals("Compra")) {
+        if (tipo.equals(Negociacao.COMPRA)) {
 
             negociacao = new Compra();
             negociacao.setData(LocalDate.now());
@@ -47,7 +47,7 @@ public class RealizarNegociacao implements ActionListener {
 
             Dados.getNegociacoes().add(negociacao);
 
-        } else if (tipo.equals("Venda")) {
+        } else if (tipo.equals(Negociacao.VENDA)) {
 
             negociacao = new Venda();
             negociacao.setData(LocalDate.now());
