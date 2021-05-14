@@ -4,13 +4,22 @@ import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.controller.AddAtivo;
 import br.ufjf.dcc.bolsa.controller.AddCarteira;
 import br.ufjf.dcc.bolsa.controller.AddNegociacao;
+import br.ufjf.dcc.bolsa.controller.CarregarListener;
 import br.ufjf.dcc.bolsa.controller.TratarDados;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.MenuDragMouseEvent;
+import javax.swing.event.MenuDragMouseListener;
 
 /**
  *
@@ -38,32 +47,53 @@ public class JanelaPrincipal extends JFrame {
         janelaPrincipal.setSize(1200,600);
         janelaPrincipal.addWindowListener(new TratarDados(janelaPrincipal));
 
+        
+        /*=================================================
+                    MENU ADICIONAR
+        ===================================================*/
         JMenuBar menu = new JMenuBar();
-        JMenu subMenu = new JMenu("Adicionar");
+        JMenu subMenuAdicionar = new JMenu("Adicionar");
 
         /*=================================================
                     MENU AÇÃO
         ===================================================*/
         JMenuItem addAcao = new JMenuItem("Ação");
         addAcao.addActionListener(new AddAtivo(janelaPrincipal));
-        subMenu.add(addAcao);
+        subMenuAdicionar.add(addAcao);
 
         /*=================================================
                     MENU NEGOCIAÇÃO
         ===================================================*/
         JMenuItem addNegociacao = new JMenuItem("Negociação");
         addNegociacao.addActionListener(new AddNegociacao(janelaPrincipal));
-        subMenu.add(addNegociacao);
+        subMenuAdicionar.add(addNegociacao);
 
         /*=================================================
                     MENU CARTEIRA
         ===================================================*/
         JMenuItem addCarteira = new JMenuItem("Carteira");
         addCarteira.addActionListener(new AddCarteira());
-        subMenu.add(addCarteira);
+        subMenuAdicionar.add(addCarteira);
         
-        menu.add(subMenu);
+        menu.add(subMenuAdicionar);
 
+        /*=================================================
+                    MENU CARREGAR
+        ===================================================*/
+        
+        JMenu subMenuCarregar = new JMenu("Carregar");
+        
+        /*=================================================
+                    MENU CARTEIRA
+        ===================================================*/
+        JMenu carregarCarteira = new JMenu("Carteira");
+        carregarCarteira.addChangeListener(new CarregarListener());
+        subMenuCarregar.add(carregarCarteira);
+        
+        
+        menu.add(subMenuCarregar);
+                
+        
         janelaPrincipal.setJMenuBar(menu);
 
         janelaPrincipal.setLayout(new BorderLayout());
