@@ -1,6 +1,7 @@
 package br.ufjf.dcc.bolsa;
 
 import br.ufjf.dcc.bolsa.model.Ativo;
+import br.ufjf.dcc.bolsa.model.Carteira;
 import br.ufjf.dcc.bolsa.model.Negociacao;
 import br.ufjf.dcc.bolsa.utils.Arquivo;
 import br.ufjf.dcc.bolsa.utils.PropertyBasedInterfaceMarshal;
@@ -24,12 +25,22 @@ public class Dados {
     private static final String ATIVOS_PATH = "Ativos.json";
     private static final String NEGOCIACOES_PATH = "Negociacoes.json";
 
+    private static List<Carteira> carteiras;
     private static List<Ativo> ativos;
     private static List<Negociacao> negociacoes;
 
     static {
+        carteiras = new ArrayList<>();
         ativos = new ArrayList<>();
         negociacoes = new ArrayList<>();
+    }
+
+    public static List<Carteira> getCarteiras() {
+        return carteiras;
+    }
+
+    public static void setCarteiras(List<Carteira> carteiras) {
+        Dados.carteiras = carteiras;
     }
 
     public static List<Ativo> getAtivos() {
