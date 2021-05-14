@@ -1,5 +1,6 @@
 package br.ufjf.dcc.bolsa.utils;
 
+import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.model.Negociacao;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -23,7 +24,9 @@ public class PropertyBasedInterfaceMarshal implements
         String className = jsonObj.get(CLASS_META_KEY).getAsString();
         try {
             Class<?> clz = Class.forName(className);
-            return jsonDeserializationContext.deserialize(jsonElement, clz);
+            Negociacao negociacao = jsonDeserializationContext.deserialize(jsonElement, clz);
+             negociacao.setAtivo(Dados.getAtivo(negociacao.getAtivo().getTag()));
+             return negociacao;
         } catch (ClassNotFoundException e) {
             throw new JsonParseException(e);
         }
@@ -34,9 +37,8 @@ public class PropertyBasedInterfaceMarshal implements
             JsonSerializationContext jsonSerializationContext) {
         JsonElement jsonEle = jsonSerializationContext.serialize(object, object.getClass());
         jsonEle.getAsJsonObject().addProperty(CLASS_META_KEY,
-                object.getClass().getCanonicalName());
+                        object.getClass().getCanonicalName());
         return jsonEle;
     }
-
 
 }
