@@ -3,6 +3,7 @@ package br.ufjf.dcc.bolsa.controller;
 import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import br.ufjf.dcc.bolsa.model.Compra;
+import br.ufjf.dcc.bolsa.model.Constantes;
 import br.ufjf.dcc.bolsa.model.Negociacao;
 import br.ufjf.dcc.bolsa.model.Venda;
 import br.ufjf.dcc.bolsa.view.JanelaAddNegociacao;
@@ -36,7 +37,7 @@ public class RealizarNegociacao implements ActionListener {
         double taxas = 0;//TODO
         Negociacao negociacao = null;
 
-        if (tipo.equals(Negociacao.COMPRA)) {
+        if (tipo.equals(Constantes.COMPRA)) {
 
             negociacao = new Compra();
             negociacao.setData(LocalDate.now());
@@ -47,7 +48,7 @@ public class RealizarNegociacao implements ActionListener {
 
             Dados.getNegociacoes().add(negociacao);
 
-        } else if (tipo.equals(Negociacao.VENDA)) {
+        } else if (tipo.equals(Constantes.VENDA)) {
 
             negociacao = new Venda();
             negociacao.setData(LocalDate.now());

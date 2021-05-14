@@ -3,6 +3,7 @@ package br.ufjf.dcc.bolsa.view;
 import br.ufjf.dcc.bolsa.Dados;
 import br.ufjf.dcc.bolsa.controller.RealizarNegociacao;
 import br.ufjf.dcc.bolsa.model.Ativo;
+import br.ufjf.dcc.bolsa.model.Constantes;
 import br.ufjf.dcc.bolsa.model.Negociacao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -69,8 +70,8 @@ public class JanelaAddNegociacao extends JFrame {
         jPanel.add(tfPreco);
 
         DefaultComboBoxModel tipoModel = new DefaultComboBoxModel();
-        tipoModel.addElement(Negociacao.COMPRA);
-        tipoModel.addElement(Negociacao.VENDA);
+        tipoModel.addElement(Constantes.COMPRA);
+        tipoModel.addElement(Constantes.VENDA);
         cbTipo.setModel(tipoModel);
         
         

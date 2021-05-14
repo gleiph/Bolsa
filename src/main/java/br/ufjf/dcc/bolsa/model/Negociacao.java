@@ -13,8 +13,6 @@ public abstract class Negociacao {
     private double valorUnitario;
     private Ativo ativo;
 
-    public static final String VENDA  = "Venda";
-    public static final String COMPRA  = "Compra";
 
     public LocalDate getData() {
         return data;
@@ -58,9 +56,9 @@ public abstract class Negociacao {
 
     public String getTipo() {
         if (this instanceof Venda) {
-            return VENDA;
+            return Constantes.VENDA;
         } else if (this instanceof Compra) {
-            return COMPRA;
+            return Constantes.COMPRA;
         } else{
             throw new RuntimeException("Operação não suportada");
         }
