@@ -177,3 +177,10 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.toptal.com/developers/gitignore/api/actionscript,intellij+iml,jspm,jboss6,java,netbeans
+
+#Json files 
+*.json
+
+
+#target
+target
