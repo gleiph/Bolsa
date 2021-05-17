@@ -23,8 +23,8 @@ public class AddAtivo implements ActionListener {
         if (tag != null) {
             try {
                 janelaPrincipal.addAtivo(tag);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Ação já existe em carteira!");
+            } catch (NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "Selecione uma carteira!");
             }
 
         }

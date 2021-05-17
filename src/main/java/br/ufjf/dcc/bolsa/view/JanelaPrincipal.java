@@ -102,7 +102,8 @@ public class JanelaPrincipal extends JFrame {
 
     }
 
-    public void addAtivo(String nome) throws Exception {
+    public void addAtivo(String nome) throws NullPointerException {
+        
         Dados.getCarteiraAtiva().getAtivos().add(new Ativo(nome, 0, 0));
         this.atualizar();
     }
