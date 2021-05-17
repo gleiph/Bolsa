@@ -1,1 +1,0 @@
-[{"nome":"Ações","ativos":[{"tag":"PETR4","quantidade":100,"precoMedio":20.0},{"tag":"BBSE3","quantidade":0,"precoMedio":0.0}],"negociacoes":[{"data":{"year":2021,"month":5,"day":17},"quantidade":100,"valorUnitario":20.0,"tagAtivo":"PETR4","type":"br.ufjf.dcc.bolsa.model.Compra"}]},{"nome":"FIIs","ativos":[],"negociacoes":[]}]
