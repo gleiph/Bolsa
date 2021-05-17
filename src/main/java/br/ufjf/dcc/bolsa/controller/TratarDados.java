@@ -37,27 +37,22 @@ public class TratarDados implements WindowListener {
 
     @Override
     public void windowClosed(WindowEvent we) {
-        System.out.println("windowClosed");
     }
 
     @Override
     public void windowIconified(WindowEvent we) {
-        System.out.println("windowIconified");
     }
 
     @Override
     public void windowDeiconified(WindowEvent we) {
-        System.out.println("windowDeiconified");
     }
 
     @Override
     public void windowActivated(WindowEvent we) {
-        System.out.println("windowActivated");
     }
 
     @Override
     public void windowDeactivated(WindowEvent we) {
-        System.out.println("windowDeactivated");
     }
 
 }
