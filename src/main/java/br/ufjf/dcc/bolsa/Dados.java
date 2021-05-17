@@ -53,6 +53,17 @@ public class Dados {
     public static void setCarteiras(List<Carteira> carteiras) {
         Dados.carteiras = carteiras;
     }
+    
+    public static Carteira getCarteira(String nome) {
+        for (Carteira carteira : carteiras) {
+            if (carteira.getNome().equals(nome)) {
+                return carteira;
+            }
+        }
+        
+        return null;
+    }
+
 
 //    public static List<Ativo> getAtivos() {
 //        return ativos;

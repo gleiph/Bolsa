@@ -79,7 +79,7 @@ public class JanelaPrincipal extends JFrame {
                     MENU CARTEIRA
         ===================================================*/
         JMenu carregarCarteira = new JMenu("Carteira");
-        carregarCarteira.addChangeListener(new CarregarListener());
+        carregarCarteira.addChangeListener(new CarregarListener(janelaPrincipal));
         subMenuCarregar.add(carregarCarteira);
         
         
