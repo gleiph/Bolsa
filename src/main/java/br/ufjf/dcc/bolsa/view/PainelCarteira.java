@@ -20,7 +20,7 @@ public class PainelCarteira extends JPanel {
 
     public PainelCarteira(JanelaPrincipal janelaPrincipal) {
         super();
-        
+
         this.janelaPrincipal = janelaPrincipal;
 
         this.setLayout(new BorderLayout());
@@ -30,7 +30,6 @@ public class PainelCarteira extends JPanel {
 
         jtAtivo = new JTable();
 
-
         this.add(new JScrollPane(jtAtivo), BorderLayout.CENTER);
     }
 
@@ -39,10 +38,12 @@ public class PainelCarteira extends JPanel {
         String[] colunas = {"Nome", "Quantidade", "Preço Unitário"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
-        for (Ativo ativo : Dados.getAtivos()) {
-            Object[] linha = {ativo.getTag(), ativo.getQuantidade(), ativo.getPrecoMedio()};
-            model.addRow(linha);
+        if (Dados.getCarteiraAtiva() != null) {
+            for (Ativo ativo : Dados.getCarteiraAtiva().getAtivos()) {
+                Object[] linha = {ativo.getTag(), ativo.getQuantidade(), ativo.getPrecoMedio()};
+                model.addRow(linha);
 
+            }
         }
 
         this.jtAtivo.setModel(model);

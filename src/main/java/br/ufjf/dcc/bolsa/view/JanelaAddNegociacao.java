@@ -53,7 +53,7 @@ public class JanelaAddNegociacao extends JFrame {
 
         DefaultComboBoxModel ativoModel = new DefaultComboBoxModel();
 
-        for (Ativo ativo : Dados.getAtivos()) {
+        for (Ativo ativo : Dados.getCarteiraAtiva().getAtivos()) {
             ativoModel.addElement(ativo);
         }
 

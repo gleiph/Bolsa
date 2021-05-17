@@ -43,10 +43,10 @@ public class RealizarNegociacao implements ActionListener {
             negociacao.setData(LocalDate.now());
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
-            negociacao.setAtivo(Dados.getAtivo(tag));
+            negociacao.setTagAtivo(Dados.getCarteiraAtiva().getAtivo(tag).getTag());
             negociacao.atualiza(quantidade, precoUnitario);
 
-            Dados.getNegociacoes().add(negociacao);
+            Dados.getCarteiraAtiva().getNegociacoes().add(negociacao);
 
         } else if (tipo.equals(Constantes.VENDA)) {
 
@@ -55,18 +55,18 @@ public class RealizarNegociacao implements ActionListener {
             negociacao.setQuantidade(quantidade);
             negociacao.setValorUnitario(precoUnitario);
 
-            Ativo ativo = Dados.getAtivo(tag);
+            Ativo ativo = Dados.getCarteiraAtiva().getAtivo(tag);
 
-            negociacao.setAtivo(ativo);
+            negociacao.setTagAtivo(tag);
             negociacao.atualiza(quantidade, precoUnitario);
 
-            Dados.getNegociacoes().add(negociacao);
+            Dados.getCarteiraAtiva().getNegociacoes().add(negociacao);
 
         } else {
             System.out.println("Negociação não suportada...");
         }
 
-        janelaPrincipal.addNegociacao(negociacao.getAtivo().getTag(), negociacao.getQuantidade(), negociacao.getValorUnitario(),
+        janelaPrincipal.addNegociacao(negociacao.getTagAtivo(), negociacao.getQuantidade(), negociacao.getValorUnitario(),
                 negociacao.getTaxaNegociacao(), negociacao.getTaxaLiquidacao(), negociacao.getTotal(), tipo);
 
     }

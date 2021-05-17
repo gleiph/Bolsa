@@ -25,7 +25,6 @@ public class PropertyBasedInterfaceMarshal implements
         try {
             Class<?> clz = Class.forName(className);
             Negociacao negociacao = jsonDeserializationContext.deserialize(jsonElement, clz);
-             negociacao.setAtivo(Dados.getAtivo(negociacao.getAtivo().getTag()));
              return negociacao;
         } catch (ClassNotFoundException e) {
             throw new JsonParseException(e);

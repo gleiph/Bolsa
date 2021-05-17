@@ -8,18 +8,10 @@ import br.ufjf.dcc.bolsa.controller.CarregarListener;
 import br.ufjf.dcc.bolsa.controller.TratarDados;
 import br.ufjf.dcc.bolsa.model.Ativo;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.MenuDragMouseEvent;
-import javax.swing.event.MenuDragMouseListener;
 
 /**
  *
@@ -111,7 +103,7 @@ public class JanelaPrincipal extends JFrame {
     }
 
     public void addAtivo(String nome) throws Exception {
-        Dados.getAtivos().add(new Ativo(nome, 0, 0));
+        Dados.getCarteiraAtiva().getAtivos().add(new Ativo(nome, 0, 0));
         this.atualizar();
     }
 

@@ -11,7 +11,7 @@ public abstract class Negociacao {
     private LocalDate data;
     private int quantidade;
     private double valorUnitario;
-    private Ativo ativo;
+    private String tagAtivo;
 
 
     public LocalDate getData() {
@@ -38,12 +38,12 @@ public abstract class Negociacao {
         this.quantidade = quantidade;
     }
 
-    public Ativo getAtivo() {
-        return ativo;
+    public String getTagAtivo() {
+        return tagAtivo;
     }
 
-    public void setAtivo(Ativo ativo) {
-        this.ativo = ativo;
+    public void setTagAtivo(String tagAtivo) {
+        this.tagAtivo = tagAtivo;
     }
 
     public double getTaxaLiquidacao() {

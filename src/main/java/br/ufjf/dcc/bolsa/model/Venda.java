@@ -1,5 +1,7 @@
 package br.ufjf.dcc.bolsa.model;
 
+import br.ufjf.dcc.bolsa.Dados;
+
 /**
  *
  * @author gleiph
@@ -18,11 +20,13 @@ public class Venda extends Negociacao{
     @Override
     public void atualiza(int quantidade, double precoUnitario) {
 
-        int quantidadeAtualizada = this.getAtivo().getQuantidade() - quantidade;
-        this.getAtivo().setQuantidade(quantidadeAtualizada);
+                Ativo ativo = Dados.getCarteiraAtiva().getAtivo(this.getTagAtivo());
+
+        int quantidadeAtualizada = ativo.getQuantidade() - quantidade;
+        ativo.setQuantidade(quantidadeAtualizada);
         
         if(quantidadeAtualizada == 0){
-            this.getAtivo().setPrecoMedio(0);
+            ativo.setPrecoMedio(0);
         }
         
     }

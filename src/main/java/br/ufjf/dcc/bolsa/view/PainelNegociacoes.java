@@ -39,10 +39,12 @@ public class PainelNegociacoes extends JPanel {
         String[] colunas = {"Nome", "Quantidade", "Preço Unitário", "Taxa de Negociação", "Taxa de Liquidação", "Total", "Tipo"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
-        for (Negociacao negociacao : Dados.getNegociacoes()) {
-            Object[] linha = {negociacao.getAtivo().getTag(), negociacao.getQuantidade(), negociacao.getValorUnitario(),
-            negociacao.getTaxaNegociacao(), negociacao.getTaxaLiquidacao(), negociacao.getTotal(), negociacao.getTipo()};
-            model.addRow(linha);
+        if (Dados.getCarteiraAtiva() != null) {
+            for (Negociacao negociacao : Dados.getCarteiraAtiva().getNegociacoes()) {
+                Object[] linha = {negociacao.getTagAtivo(), negociacao.getQuantidade(), negociacao.getValorUnitario(),
+                    negociacao.getTaxaNegociacao(), negociacao.getTaxaLiquidacao(), negociacao.getTotal(), negociacao.getTipo()};
+                model.addRow(linha);
+            }
         }
 
         jtNegociacoes.setModel(model);

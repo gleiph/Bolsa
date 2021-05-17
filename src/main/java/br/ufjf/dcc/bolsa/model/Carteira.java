@@ -43,7 +43,7 @@ public class Carteira {
         this.negociacoes = negociacoes;
     }
     
-    public Ativo getATivo(String codigo){
+    public Ativo getAtivo(String codigo){
         for (Ativo ativo : ativos) {
             if(ativo.getTag().equals(codigo)){
                 return ativo;
