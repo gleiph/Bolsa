@@ -32,7 +32,7 @@ public class SelecionaCarteira implements ActionListener{
             String text = item.getText();
             Dados.setCarteiraAtiva(Dados.getCarteira(text));
             
-            
+            janelaPrincipal.atualizar();
         }
         
     }
